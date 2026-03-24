@@ -19,6 +19,7 @@ docker run -d \
   -e OPERATOR_PRIVATE_KEY=<key> \
   -e CHAIN_ID=11155111 \
   -e DEPLOY_BLOCK=10477882 \
+  -e SUBSQUID_ARCHIVE=https://v2.archive.subsquid.io/network/ethereum-sepolia \
   -e PORT=3001 \
   -p 3001:3001 \
   upc-asp-whitelist
@@ -37,7 +38,13 @@ On first startup, the service registers itself with ASPRegistryHub and prints th
 | `GET /members` | All whitelisted addresses |
 | `GET /status` | Sync status |
 
+## Indexer
+
+Uses **Subsquid** for historical catch-up (no RPC quota concerns). The Subsquid archive syncs all past events efficiently, then switches to the RPC endpoint for live blocks only.
+
+Set `SUBSQUID_ARCHIVE` to the Subsquid archive URL for your chain (default: Sepolia).
+
 ## Prerequisites
 
 - Operator address needs Sepolia ETH (for `updateRoot` transactions)
-- RPC endpoint with sufficient quota for historical log fetching
+- RPC endpoint (used only for live blocks after Subsquid catch-up)
