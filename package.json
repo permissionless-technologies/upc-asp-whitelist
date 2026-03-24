@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@permissionless-technologies/upc-asp-whitelist": "^0.4.0",
+    "@permissionless-technologies/upc-asp-whitelist": "^0.4.2",
     "@subsquid/evm-processor": "^1.29.0",
     "tsx": "^4.21.0",
     "viem": "^2.47.6"
