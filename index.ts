@@ -11,7 +11,7 @@ import { parseAbiItem } from 'viem'
 // Sepolia deployment addresses (from upp-sdk/src/deployments/11155111.json)
 const DEPLOYMENTS: Record<number, { pool: `0x${string}`; aspRegistry: `0x${string}`; deployBlock: bigint }> = {
   11155111: {
-    pool: '0xb111a861cba83b16b9cab613b31b1f0ca03e1996',
+    pool: '0x2a725ec54232981f60574a6b9b7d25d202f6b862',
     aspRegistry: '0xfd11c56a23314aa88dfbcc36254f33e5e8b010df',
     deployBlock: 10477882n,
   },
