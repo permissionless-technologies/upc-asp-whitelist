@@ -45,6 +45,7 @@ startASPService({
     event: shieldedEvent,
     addressTopicIndex: 2,
     deployBlock: deployment.deployBlock,
+    finalityConfirmation: 2
   }),
 
   gate: new SanctionsGate({ blocklist }),
