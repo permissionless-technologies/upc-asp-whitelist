@@ -9,13 +9,13 @@ import { parseAbiItem } from 'viem'
 // import { UNIVERSAL_PRIVATE_POOL_ABI, getDeploymentOrThrow } from '@permissionless-technologies/upp-sdk'
 
 // Sepolia deployment addresses (from upp-sdk/src/deployments/11155111.json)
-// Updated 2026-04-27 for the v3 pool redeploy (PlonkVerifierBundle indirection
-// + new SNARK verifiers built against the post-Apr-13 nullifier-key circuits).
+// Updated 2026-04-29 for the v4 pool redeploy (ASP-gated merge + merge-transfer
+// circuits; new MergeParams/MergeTransfer{2x2,4x2}Params include aspRoot/aspId).
 const DEPLOYMENTS: Record<number, { pool: `0x${string}`; aspRegistry: `0x${string}`; deployBlock: bigint }> = {
   11155111: {
-    pool: '0x3f5a5f9A049828A748e958d9902bA98f03079BcB',
+    pool: '0x1cB47B1D215D0C72d70ab0011711962AEa9879Ee',
     aspRegistry: '0x4935146dfB8f5dD25EC704Ed9E40F2b7FD89a6e9',
-    deployBlock: 10741561n,
+    deployBlock: 10755242n,
   },
 }
 
