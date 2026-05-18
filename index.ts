@@ -9,13 +9,17 @@ import { parseAbiItem } from 'viem'
 // import { UNIVERSAL_PRIVATE_POOL_ABI, getDeploymentOrThrow } from '@permissionless-technologies/upp-sdk'
 
 // Sepolia deployment addresses (from upp-sdk/src/deployments/11155111.json)
-// Updated 2026-04-29 for the v4 pool redeploy (ASP-gated merge + merge-transfer
-// circuits; new MergeParams/MergeTransfer{2x2,4x2}Params include aspRoot/aspId).
+// Updated 2026-05-18 for the V4 (8-ary STARK) rollout — pool proxy
+// `0xCDA1…1740` (stable across the V4-aware impl upgrade at block
+// 10846101) and the fresh ASPRegistryHub `0xB7112902…` initialized as
+// part of the same redeploy. The old addresses (pool 0x1cB47B1D…,
+// aspRegistry 0x4935146d…) belonged to a pre-V4 deployment and no
+// longer receive shields or accept root updates from this service.
 const DEPLOYMENTS: Record<number, { pool: `0x${string}`; aspRegistry: `0x${string}`; deployBlock: bigint }> = {
   11155111: {
-    pool: '0x1cB47B1D215D0C72d70ab0011711962AEa9879Ee',
-    aspRegistry: '0x4935146dfB8f5dD25EC704Ed9E40F2b7FD89a6e9',
-    deployBlock: 10755242n,
+    pool: '0xCDA138FFd4789670e0034aE30946b8873bb51740',
+    aspRegistry: '0xB71129021E6f1C45D206aa15233d9B1DcEfdeb97',
+    deployBlock: 10846101n,
   },
 }
 
