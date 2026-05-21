@@ -46,6 +46,13 @@ startASPService({
 
   eventSource: new SubsquidEventSource({
     archive: process.env.SUBSQUID_ARCHIVE ?? 'https://v2.archive.subsquid.io/network/ethereum-sepolia',
+    // Subsquid gated the v2 archive endpoints behind API keys (mid-2026).
+    // The service reads `SQD_KEY` (project convention — set in ECS task
+    // definition / .env) and passes it through. The SubsquidEventSource
+    // forwards it to `setGateway({ url, apiKey })` and warns at startup
+    // if neither this nor the SDK's own `SQD_API_KEY` env var is set.
+    // Get a key at https://app.subsquid.io.
+    apiKey: process.env.SQD_KEY,
     rpcUrl: process.env.RPC_URL!,
     watchAddress: deployment.pool,
     event: shieldedEvent,
